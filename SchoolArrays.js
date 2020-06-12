@@ -251,4 +251,13 @@ function getStudentSchedule(studentId) {
     return clsses
 }
 
-console.log(getStudentSchedule("5e2ca1b5-fd09-4640-8c3b-63026336c3aa"))
+
+// Q9 - Create a function called doesTeach which takes 2 parameters, teacherId and studentId. The function should return true if the student is in any of the teacher's classes or false otherwise.
+
+function doesTeach(teacherId, studentId) {
+    let classes = studentClasses.filter(cls => cls.studentId == studentId)
+        .map(cls => getClassById(cls.classId));
+    return classes.some(cls => cls.teacherId == teacherId)
+}
+console.log(doesTeach("948c3641-f95d-483b-8c59", "27349f20-8fa2-4d6d-b8ef-faa9630494e6"))
+//teacher - 948c3641-f95d-483b-8c59-b84c27041313
